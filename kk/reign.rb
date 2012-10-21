@@ -40,20 +40,12 @@ class Reigns
   end
 
   def datein
-    foo = nil
-    reigns.each do |reign|
-      if reign.datein? (@date)
-        foo = reign
-        break
-      else
-        foo = nil
-      end
-    end
-    return foo
+    reigns.find { |reign| reign.datein? (@date) }
   end
 end
 
 puts Reigns.new(Date.new(1970, 1, 1)).pretty_print
+puts Reigns.new(Date.new(1925, 3, 5)).pretty_print
 
 __END__
 
